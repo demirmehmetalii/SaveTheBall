@@ -1,16 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 public class TouchHandler : Singleton<TouchHandler>
 {
-   
     public enum TouchTypes
     {
         Core = 0,
+
         SecondaryMechanic = 1
-            //.....so on
+        //.....so on
     }
 
     TouchTypes activeTouch;
@@ -19,17 +20,25 @@ public class TouchHandler : Singleton<TouchHandler>
     //the level or at different types of obstacles
 
     private delegate void OnDownAction();
+
     private OnDownAction OnDown = null;
+
     private delegate void OnUpAction();
+
     private OnUpAction OnUp = null;
+
     private delegate void OnDragAction();
+
     private OnDragAction OnDrag = null;
 
     private bool isDragging = false;
     private bool canPlay = false;
 
     private Vector3 fp, lp, dif;
-
+    public Vector3 delta;
+    public Vector3 initialMousePosition = Vector3.zero;
+    public bool control = false;
+    public float inputSensitivity;
     bool IsActive() => GameManager.isRunning && canPlay;
 
     private void Update()
@@ -45,7 +54,6 @@ public class TouchHandler : Singleton<TouchHandler>
 
     void HandleTouch()
     {
-
         if (!isDragging)
         {
             if (Input.GetMouseButtonDown(0))
@@ -68,7 +76,7 @@ public class TouchHandler : Singleton<TouchHandler>
 
     public void Initialize(TouchTypes tt = TouchTypes.Core, bool isButtonDerived = true, bool isStart = false)
     {
-        switch(tt)
+        switch (tt)
         {
             case TouchTypes.Core:
                 OnDown = CoreDown;
@@ -91,7 +99,7 @@ public class TouchHandler : Singleton<TouchHandler>
                 break;
         }
 
-        if(isStart)
+        if (isStart)
             UIManager.Instance.Initialize(isButtonDerived);
     }
 
@@ -101,16 +109,19 @@ public class TouchHandler : Singleton<TouchHandler>
     {
         //Get first touch position
         Debug.Log("Core Down");
-        
-
+        control = true;
+        initialMousePosition = Input.mousePosition;
     }
+
     void CoreUp()
     {
         //Play some animations maybe...
         Debug.Log("Core Up");
-        
+        control = false;
+        initialMousePosition = Input.mousePosition;
         //TODO ADD FUNCTION HERE
     }
+
     void CoreDrag()
     {
         Debug.Log("Core Drag");
@@ -120,13 +131,24 @@ public class TouchHandler : Singleton<TouchHandler>
         //calculate swipe amount
         dif = lp - fp;
 
-        
 
         //Use this vector to do some action...
         //TODO ADD FUNCTION HERE
 
         //Reset swipe amount
         fp = lp;
+        if (control)
+        {
+            delta = (Input.mousePosition - initialMousePosition) *
+                    (((float) Screen.width / Screen.height) * inputSensitivity);
+
+            initialMousePosition = Input.mousePosition;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+       
     }
 
     void OnDownSecondary()
@@ -136,14 +158,11 @@ public class TouchHandler : Singleton<TouchHandler>
 
     void OnDragSecondary()
     {
-
         Debug.Log("On Drag Sec");
     }
+
     void OnUpSecondary()
     {
-
         Debug.Log("On Up Sec");
     }
-
-
 }
