@@ -35,7 +35,7 @@ public class TouchHandler : Singleton<TouchHandler>
     private bool canPlay = false;
 
     private Vector3 fp, lp, dif;
-    public Vector3 delta;
+    public Vector2 delta;
     public Vector3 initialMousePosition = Vector3.zero;
     public bool control = false;
     public float inputSensitivity;
@@ -108,23 +108,22 @@ public class TouchHandler : Singleton<TouchHandler>
     void CoreDown()
     {
         //Get first touch position
-        Debug.Log("Core Down");
         control = true;
+        delta = Vector3.zero;
         initialMousePosition = Input.mousePosition;
     }
 
     void CoreUp()
     {
         //Play some animations maybe...
-        Debug.Log("Core Up");
         control = false;
+        delta = Vector3.zero;
         initialMousePosition = Input.mousePosition;
         //TODO ADD FUNCTION HERE
     }
 
     void CoreDrag()
     {
-        Debug.Log("Core Drag");
         //Get current touch position
 
 
@@ -141,14 +140,8 @@ public class TouchHandler : Singleton<TouchHandler>
         {
             delta = (Input.mousePosition - initialMousePosition) *
                     (((float) Screen.width / Screen.height) * inputSensitivity);
-
             initialMousePosition = Input.mousePosition;
         }
-    }
-
-    private void FixedUpdate()
-    {
-       
     }
 
     void OnDownSecondary()
