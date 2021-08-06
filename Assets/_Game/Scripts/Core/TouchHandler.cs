@@ -116,21 +116,19 @@ public class TouchHandler : Singleton<TouchHandler>
     void CoreUp()
     {
         //Play some animations maybe...
+    
         control = false;
         delta = Vector3.zero;
         initialMousePosition = Input.mousePosition;
         //TODO ADD FUNCTION HERE
     }
-
     void CoreDrag()
     {
         //Get current touch position
-
-
+        
         //calculate swipe amount
         dif = lp - fp;
-
-
+        
         //Use this vector to do some action...
         //TODO ADD FUNCTION HERE
 

@@ -21,11 +21,10 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-        var pos = transform.position;
+        // var pos = transform.position;
         // pos.x = Mathf.Clamp(transform.position.x, -4.0f, 4.0f);
         // pos.y = Mathf.Clamp(transform.position.y, 0.05f, 4.0f);
         var delta = TouchHandler.Instance.delta;
         transform.position += new Vector3(delta.x, delta.y, 0);
-        // transform.position = pos;
     }
 }
