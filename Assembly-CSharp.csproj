@@ -77,6 +77,8 @@
      <Compile Include="Assets\_Game\Scripts\Helpers\Extentions\ColorHSV.cs" />
      <Compile Include="Assets\Scripts\CharacterController.cs" />
      <Compile Include="Assets\Scripts\CopyLimb.cs" />
+     <Compile Include="Assets\_Game\Scripts\Core\BallMove.cs" />
+     <Compile Include="Assets\_Game\Scripts\Core\CameraController.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\MarketAssets\Toony Colors Pro\Shader Templates 2\SG2_Template_URP.txt" />
      <None Include="Assets\MarketAssets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />

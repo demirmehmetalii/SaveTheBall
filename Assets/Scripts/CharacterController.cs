@@ -1,45 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterController : Singleton<CharacterController>
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private ConfigurableJoint hipJoint;
-    [SerializeField] private Rigidbody hip;
-
-    // [SerializeField] private Animator targetAnimator;
+    [SerializeField] private Animator targetAnimator;
+    public float speedAi;
+    public bool move = false;
 
     private bool walk = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-        if (direction.magnitude >= 0.1f)
+        if (move)
         {
-            float targetAngle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
-
-            this.hipJoint.targetRotation = Quaternion.Euler(0f, targetAngle, 0f);
-
-            this.hip.AddForce(direction * this.speed);
-
+            transform.position += transform.forward * Time.deltaTime * speedAi;
             this.walk = true;
+            this.targetAnimator.SetBool("Walk", this.walk);
         }
         else
         {
             this.walk = false;
         }
+    }
 
-        // this.targetAnimator.SetBool("Walk", this.walk);
+    public void rot()
+    {
+        transform.DORotate(new Vector3(0, 90, 0), 1f);
     }
 }

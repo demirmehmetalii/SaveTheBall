@@ -4,5 +4,9 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    //Some Level Variables...
+    public Transform camera;
+
+    public Transform ball;
+    public List<BallMove> ballMoves = new List<BallMove>();
+    public List<CharacterController> ai = new List<CharacterController>();
 }
