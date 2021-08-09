@@ -1150,13 +1150,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  ai:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  ballPosition: {fileID: 0}
+  aiList: []
+  cameraPosition: {fileID: 1214111024}
 --- !u!1 &983039346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,12 +1195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bc64a70ce97474eb2311774305eeb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testLevel: {fileID: 6726730257805098804, guid: 60b41d1bd64964502bdd7e56dc873e92, type: 3}
+  testLevel: {fileID: 6726730257805098804, guid: 6bbe0e09e206a4e178980b1da3802977, type: 3}
   pool: {fileID: 660436320}
-  allLevels:
-  - {fileID: 6726730257805098804, guid: 60b41d1bd64964502bdd7e56dc873e92, type: 3}
-  - {fileID: 6726730257805098804, guid: b1c2f4dbe32e642688f0187e28c3f58e, type: 3}
-  - {fileID: 6726730257805098804, guid: 6bbe0e09e206a4e178980b1da3802977, type: 3}
+  allLevels: []
 --- !u!1 &1018035732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1342,6 @@ GameObject:
   - component: {fileID: 1214111023}
   - component: {fileID: 1214111022}
   - component: {fileID: 1214111021}
-  - component: {fileID: 1214111025}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1454,18 +1445,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 14.39, y: 0, z: 0}
---- !u!114 &1214111025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214111020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2f3b1be5abb432b9d1b3397f88a3ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1237776509
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,21 +3257,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2245599060000895052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2245599060000895058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d51ede52931a21d4c8a3e981df323d0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetAnimator: {fileID: 0}
-  speedAi: 0
-  move: 0
 --- !u!1 &2245599060000895058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,7 +3267,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1468781362927217384}
   - component: {fileID: 2245599060000895059}
-  - component: {fileID: 2245599060000895052}
   - component: {fileID: 2245599060000895060}
   m_Layer: 0
   m_Name: PlayerRagdoll
@@ -3311,7 +3274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &2245599060000895059
 Rigidbody:
   m_ObjectHideFlags: 0

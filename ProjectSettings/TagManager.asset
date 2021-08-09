@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Ai
+  - Collider
   layers:
   - Default
   - TransparentFX

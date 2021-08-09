@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,17 +14,24 @@ public class BallMove : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
     }
-    public void OnTriggerEnter(Collider other)
+
+    public void OnCollisionEnter(Collision other)
     {
-        if (other.CompareTag("Ai"))
+        if (other.gameObject.CompareTag("Ai"))
         {
-           BallShot();
+            BallShot();
+            AİController.Instance.AiRotationFinish();
+            Level level = LevelHandler.Instance.GetLevel();
+            var first = level.aiList.First();
+            level.aiList.Remove(first);
         }
     }
 
+
     public void BallShot()
     {
-        var positionRandom = new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+        rigidBody.velocity = Vector3.zero;
+        var positionRandom = new Vector3(Random.Range(-0.3f, 0.3f), 0, 0);
         rigidBody.AddForce((transform.forward + transform.up + positionRandom) * speed);
     }
 }

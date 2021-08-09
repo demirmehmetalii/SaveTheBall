@@ -8,8 +8,8 @@ public class GameManager : Singleton<GameManager>
 {
     public static bool canStart = false, isRunning = false, aiController = false;
     public List<BallMove> ballMoves = new List<BallMove>();
-    public List<CharacterController> ai = new List<CharacterController>();
-    public Transform ballPosition;
+    public List<GameObject> aiList = new List<GameObject>();
+    public Transform cameraPosition;
 
     public static void OnStartGame()
     {
@@ -24,14 +24,15 @@ public class GameManager : Singleton<GameManager>
     public void Ball()
     {
         Level level = LevelHandler.Instance.GetLevel();
-        var last = level.ballMoves.First();
-        last.transform.DOMove(level.ball.position, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+        var first = level.ballMoves.First();
+        var firstAi = level.aiList.First();
+        first.transform.DOMove(level.ball.position, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            var aiFirst = level.ai.First();
-            aiFirst.move = true;
-            level.ballMoves.Remove(last);
+            firstAi.SetActive(true);
+            level.ballMoves.Remove(first);
         });
     }
+
 
     public static void OnLevelCompleted()
     {

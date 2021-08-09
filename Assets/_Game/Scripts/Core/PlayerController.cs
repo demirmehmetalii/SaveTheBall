@@ -10,7 +10,11 @@ public class PlayerController : Singleton<PlayerController>
     float Speed => Configs.Player.speed;
 
     private void Start()
+
     {
+        // Level level = LevelHandler.Instance.GetLevel();
+        // GameManager.Instance.cameraPosition.position = level.cameraStartPosition.transform.position;
+        // transform.position = level.playerStartPosition.position;
     }
 
     public void OnGameStarted()
