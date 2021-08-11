@@ -7,9 +7,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public static bool canStart = false, isRunning = false, aiController = false;
-    public List<BallMove> ballMoves = new List<BallMove>();
-    public List<GameObject> aiList = new List<GameObject>();
-    public Transform cameraPosition;
+    public Camera cameraPosition;
 
     public static void OnStartGame()
     {
@@ -24,13 +22,21 @@ public class GameManager : Singleton<GameManager>
     public void Ball()
     {
         Level level = LevelHandler.Instance.GetLevel();
-        var first = level.ballMoves.First();
-        var firstAi = level.aiList.First();
-        first.transform.DOMove(level.ball.position, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+
+        if (level.ballMoves.Count > 0 && level.aiList.Count > 0)
         {
-            firstAi.SetActive(true);
-            level.ballMoves.Remove(first);
-        });
+            var first = level.ballMoves.First();
+            var firstAi = level.aiList.First();
+            first.transform.DOMove(level.ball.position, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                firstAi.SetActive(true);
+                level.ballMoves.Remove(first);
+            });
+        }
+        else
+        {
+            
+        }
     }
 
 

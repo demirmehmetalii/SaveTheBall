@@ -50,15 +50,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\_Game\Scripts\Core\BallCollider.cs" />
      <Compile Include="Assets\MarketAssets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoBall.cs" />
      <Compile Include="Assets\MarketAssets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoGhost.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\PlayerController.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\TouchHandler.cs" />
+     <Compile Include="Assets\Scripts\AİController.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\Singleton.cs" />
      <Compile Include="Assets\_Game\Scripts\Helpers\Extentions\EaseHelper.cs" />
      <Compile Include="Assets\MarketAssets\MMFeedbacks\MMFeedbacks\Demos\MMFeedbacksDemo\Scripts\DemoButton.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\GameManager.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\Level.cs" />
+     <Compile Include="Assets\Scripts\CopyLimb.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\Configs.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\LevelHandler.cs" />
      <Compile Include="Assets\_Game\Scripts\Helpers\Pooling\PoolObject.cs" />
@@ -72,13 +75,10 @@
      <Compile Include="Assets\_Game\Scripts\Helpers\Extentions\StringExtentions.cs" />
      <Compile Include="Assets\_Game\Scripts\Core\UIManager.cs" />
      <Compile Include="Assets\_Game\Scripts\Helpers\Pooling\PoolManager.cs" />
+     <Compile Include="Assets\_Game\Scripts\Core\BallMove.cs" />
      <Compile Include="Assets\_Game\Scripts\Helpers\Extentions\ColorExtentions.cs" />
      <Compile Include="Assets\_Game\Scripts\Helpers\Pooling\SamplePoolObject.cs" />
      <Compile Include="Assets\_Game\Scripts\Helpers\Extentions\ColorHSV.cs" />
-     <Compile Include="Assets\Scripts\AİController.cs" />
-     <Compile Include="Assets\Scripts\CopyLimb.cs" />
-     <Compile Include="Assets\_Game\Scripts\Core\BallMove.cs" />
-     <Compile Include="Assets\BallCollider.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\MarketAssets\Toony Colors Pro\Shader Templates 2\SG2_Template_URP.txt" />
      <None Include="Assets\MarketAssets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />

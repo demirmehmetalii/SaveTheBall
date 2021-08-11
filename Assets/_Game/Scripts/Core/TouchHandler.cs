@@ -107,39 +107,22 @@ public class TouchHandler : Singleton<TouchHandler>
 
     void CoreDown()
     {
-        //Get first touch position
-        control = true;
-        delta = Vector3.zero;
         initialMousePosition = Input.mousePosition;
+        // delta = Vector3.zero;
+        // PlayerController.Instance.AnimationPlayer(false);
     }
 
     void CoreUp()
     {
-        //Play some animations maybe...
-    
-        control = false;
-        delta = Vector3.zero;
+        delta = (Input.mousePosition - initialMousePosition) *
+                (((float)Screen.width / Screen.height) * inputSensitivity);
         initialMousePosition = Input.mousePosition;
-        //TODO ADD FUNCTION HERE
+        delta.x = Mathf.Clamp(delta.x, -4f, 4f);
+        delta.y = Mathf.Clamp(delta.y, 0f, 3f);
     }
+
     void CoreDrag()
     {
-        //Get current touch position
-        
-        //calculate swipe amount
-        dif = lp - fp;
-        
-        //Use this vector to do some action...
-        //TODO ADD FUNCTION HERE
-
-        //Reset swipe amount
-        fp = lp;
-        if (control)
-        {
-            delta = (Input.mousePosition - initialMousePosition) *
-                    (((float) Screen.width / Screen.height) * inputSensitivity);
-            initialMousePosition = Input.mousePosition;
-        }
     }
 
     void OnDownSecondary()

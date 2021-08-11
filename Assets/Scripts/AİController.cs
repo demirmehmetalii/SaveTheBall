@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -10,6 +11,7 @@ public class AİController : Singleton<AİController>
     public float speedAi;
 
     private bool walk = false;
+    
 
     void Update()
     {
@@ -25,4 +27,9 @@ public class AİController : Singleton<AİController>
     {
         transform.DORotate(new Vector3(0, 90, 0), 1f);
     }
+    
+    
+    
+    
+    
 }

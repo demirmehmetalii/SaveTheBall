@@ -3919,6 +3919,36 @@ Transform:
   m_Father: {fileID: 8863341622401136280}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2213188869938053518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7097467442902209163}
+  m_Layer: 0
+  m_Name: PlayerStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7097467442902209163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2213188869938053518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: -3.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6726730257805098807}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2258407525479107359
 GameObject:
   m_ObjectHideFlags: 0
@@ -13033,6 +13063,8 @@ Transform:
   - {fileID: 6544117972083888986}
   - {fileID: 2546744210673233744}
   - {fileID: 7563494393263258682}
+  - {fileID: 7097467442902209163}
+  - {fileID: 3954567816167207316}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13048,8 +13080,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d063aee5a2dea4aa28e6cd2935ec1bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraStartPosition: {fileID: 0}
-  playerStartPosition: {fileID: 0}
+  cameraStartPosition: {fileID: 3954567816167207316}
+  playerStartPosition: {fileID: 7097467442902209163}
   ball: {fileID: 2013917331986232237}
   ballMoves:
   - {fileID: 9075000373493460553}
@@ -13248,6 +13280,36 @@ Transform:
   m_Father: {fileID: 2837857946139070543}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7077978439248698633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3954567816167207316}
+  m_Layer: 0
+  m_Name: CameraStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3954567816167207316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077978439248698633}
+  m_LocalRotation: {x: 0.12524661, y: 0, z: 0, w: 0.99212563}
+  m_LocalPosition: {x: 0, y: 11.04, z: -21.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6726730257805098807}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 14.39, y: 0, z: 0}
 --- !u!1 &7085226644844089772
 GameObject:
   m_ObjectHideFlags: 0

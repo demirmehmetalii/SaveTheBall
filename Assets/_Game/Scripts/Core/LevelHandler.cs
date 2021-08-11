@@ -15,7 +15,7 @@ public class LevelHandler : Singleton<LevelHandler>
         CreateLevel();
 
         TouchHandler.Instance.Initialize(TouchHandler.TouchTypes.Core, true, true);
-
+        crntLevel.StartCameraPlayerPosition();
     }
 
     public void CreateLevel()
