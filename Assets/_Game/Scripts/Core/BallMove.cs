@@ -25,6 +25,7 @@ public class BallMove : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
+            this.gameObject.tag = "Untagged";
             BallShotPlayer();
         }
     }
@@ -34,8 +35,11 @@ public class BallMove : MonoBehaviour
     {
         AİController.Instance.AiRotationFinish();
         Level level = LevelHandler.Instance.GetLevel();
-        var first = level.aiList.First();
-        level.aiList.Remove(first);
+        if (level.aiList.Count > 0)
+        {
+            var first = level.aiList.First();
+            level.aiList.Remove(first);
+        }
     }
 
     public void BallShot()

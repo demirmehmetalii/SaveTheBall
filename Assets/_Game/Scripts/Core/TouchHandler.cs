@@ -37,7 +37,6 @@ public class TouchHandler : Singleton<TouchHandler>
     private Vector3 fp, lp, dif;
     public Vector2 delta;
     public Vector3 initialMousePosition = Vector3.zero;
-    public bool control = false;
     public float inputSensitivity;
     bool IsActive() => GameManager.isRunning && canPlay;
 
@@ -107,9 +106,9 @@ public class TouchHandler : Singleton<TouchHandler>
 
     void CoreDown()
     {
+        delta.y = 0.0f;
         initialMousePosition = Input.mousePosition;
-        // delta = Vector3.zero;
-        // PlayerController.Instance.AnimationPlayer(false);
+        PlayerController.Instance.Anim(true);
     }
 
     void CoreUp()
@@ -117,8 +116,8 @@ public class TouchHandler : Singleton<TouchHandler>
         delta = (Input.mousePosition - initialMousePosition) *
                 (((float)Screen.width / Screen.height) * inputSensitivity);
         initialMousePosition = Input.mousePosition;
-        delta.x = Mathf.Clamp(delta.x, -4f, 4f);
-        delta.y = Mathf.Clamp(delta.y, 0f, 3f);
+        StartCoroutine(PlayerController.Instance.PlayerMover(delta));
+        PlayerController.Instance.Anim(false);
     }
 
     void CoreDrag()

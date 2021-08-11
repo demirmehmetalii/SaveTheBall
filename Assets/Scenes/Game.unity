@@ -1148,7 +1148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPosition: {fileID: 1214111023}
-  ballShotDelay: 2.2
 --- !u!1 &983039346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,7 +1672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delta: {x: 0, y: 0}
   initialMousePosition: {x: 0, y: 0, z: 0}
-  inputSensitivity: 0.0020833334
+  inputSensitivity: 0.004166667
 --- !u!1 &1407311038
 GameObject:
   m_ObjectHideFlags: 0

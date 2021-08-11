@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class BallCollider : MonoBehaviour
@@ -7,9 +8,13 @@ public class BallCollider : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            GameManager.Instance.Ball();
+            StartCoroutine(nameof(BallShotDelay));
         }
     }
 
-    
+    private IEnumerator BallShotDelay()
+    {
+        yield return new WaitForSeconds(GameManager.Instance.ballShotDelay);
+        GameManager.Instance.Ball();
+    }
 }

@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
 {
     public static bool canStart = false, isRunning = false, aiController = false;
     public Camera cameraPosition;
+    public float ballShotDelay=2.2f;
 
     public static void OnStartGame()
     {
