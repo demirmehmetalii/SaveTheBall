@@ -11,7 +11,7 @@ public class AİController : Singleton<AİController>
     public float speedAi;
 
     private bool walk = false;
-    
+
 
     void Update()
     {
@@ -25,11 +25,6 @@ public class AİController : Singleton<AİController>
 
     public void AiRotationFinish()
     {
-        transform.DORotate(new Vector3(0, 90, 0), 1f);
+        transform.DORotate(new Vector3(0, 90, 0), 1f).OnComplete(() => this.gameObject.SetActive(false));
     }
-    
-    
-    
-    
-    
 }

@@ -2569,7 +2569,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922436084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.5, y: 1.6, z: 1.9}
+  m_LocalPosition: {x: 10.5, y: 1.6, z: -12.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 640135591}
@@ -3695,12 +3695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bc64a70ce97474eb2311774305eeb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testLevel: {fileID: 0}
+  testLevel: {fileID: 6726730257805098804, guid: b1c2f4dbe32e642688f0187e28c3f58e, type: 3}
   pool: {fileID: 1438870517}
-  allLevels:
-  - {fileID: 6726730257805098804, guid: 60b41d1bd64964502bdd7e56dc873e92, type: 3}
-  - {fileID: 6726730257805098804, guid: b1c2f4dbe32e642688f0187e28c3f58e, type: 3}
-  - {fileID: 6726730257805098804, guid: 6bbe0e09e206a4e178980b1da3802977, type: 3}
+  allLevels: []
 --- !u!1 &1182332153
 GameObject:
   m_ObjectHideFlags: 0
@@ -5395,8 +5392,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5170323138729520846, guid: f660b940bef574ffa970aa882d334433, type: 3}
-  - {fileID: -6587498587966048500, guid: f660b940bef574ffa970aa882d334433, type: 3}
+  - {fileID: 2100000, guid: fc320b40b402a6b49bac572ec2510f89, type: 2}
+  - {fileID: 2100000, guid: a959cef255283c34ca37d2992c5388bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
