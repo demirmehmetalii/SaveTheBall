@@ -8,7 +8,6 @@ using UnityEngine.Events;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    //Some variables...
     float Speed => Configs.Player.speed;
 
     [SerializeField] public Animator targetAnimator;
@@ -24,12 +23,7 @@ public class PlayerController : Singleton<PlayerController>
         GameManager.Instance.Ball();
     }
 
-    private void FixedUpdate()
-    {
-        if (GameManager.isRunning)
-        {
-        }
-    }
+    
 
     public IEnumerator PlayerMover(Vector2 delta)
     {

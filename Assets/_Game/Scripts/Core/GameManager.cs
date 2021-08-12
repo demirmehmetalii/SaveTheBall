@@ -8,7 +8,8 @@ public class GameManager : Singleton<GameManager>
 {
     public static bool canStart = false, isRunning = false, aiController = false;
     public Camera cameraPosition;
-    public float ballShotDelay=2.2f;
+    public float ballShotDelay = 2.2f;
+    public int playerHeldShot;
 
     public static void OnStartGame()
     {
@@ -20,11 +21,21 @@ public class GameManager : Singleton<GameManager>
         isRunning = true;
     }
 
+    public void ListControlRemove()
+    {
+        Level level = LevelHandler.Instance.GetLevel();
+        if (level.aiList.Count > 0)
+        {
+            var first = level.aiList.First();
+            level.aiList.Remove(first);
+        }
+    }
+
     public void Ball()
     {
         Level level = LevelHandler.Instance.GetLevel();
 
-        if (level.ballMoves.Count > 0 && level.aiList.Count > 0)
+        if (level.ballMoves.Count > 0 || level.aiList.Count > 0)
         {
             var first = level.ballMoves.First();
             var firstAi = level.aiList.First();
@@ -36,7 +47,14 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
-            
+            if (playerHeldShot >= 3)
+            {
+                OnLevelCompleted();
+            }
+            else
+            {
+                OnLevelFailed();
+            }
         }
     }
 

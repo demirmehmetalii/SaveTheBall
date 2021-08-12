@@ -6,9 +6,10 @@ public class BallCollider : MonoBehaviour
 {
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball"))
+        if (other.CompareTag("BallPlayer"))
         {
             StartCoroutine(nameof(BallShotDelay));
+            GameManager.Instance.ListControlRemove();
         }
     }
 

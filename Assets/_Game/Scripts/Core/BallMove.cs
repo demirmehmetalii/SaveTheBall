@@ -19,41 +19,33 @@ public class BallMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ai"))
         {
-            BallShot();
-            CollisionAi();
+            this.gameObject.tag = "BallPlayer";
+            BallShotAi();
         }
+    }
 
-        if (other.gameObject.CompareTag("Player"))
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
+            GameManager.Instance.playerHeldShot += 1;
             this.gameObject.tag = "Untagged";
             BallShotPlayer();
         }
     }
 
-
-    public void CollisionAi()
-    {
-        AİController.Instance.AiRotationFinish();
-        Level level = LevelHandler.Instance.GetLevel();
-        if (level.aiList.Count > 0)
-        {
-            var first = level.aiList.First();
-            level.aiList.Remove(first);
-        }
-    }
-
-    public void BallShot()
+    public void BallShotAi()
     {
         rigidBody.velocity = Vector3.zero;
         var positionRandom = new Vector3(Random.Range(-0.25f, 0.25f), 0, 0);
         rigidBody.AddForce((transform.forward + transform.up + positionRandom) * speed);
+        AİController.Instance.AiRotationFinish();
     }
 
     public void BallShotPlayer()
     {
         rigidBody.velocity = Vector3.zero;
-        var forward = -transform.forward;
-        var up = -transform.up;
-        rigidBody.AddForce((forward + up) * speed);
+        rigidBody.AddForce((new Vector3(5, 5, 0)) * speed);
     }
 }
