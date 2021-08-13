@@ -8,8 +8,12 @@ public class GameManager : Singleton<GameManager>
 {
     public static bool canStart = false, isRunning = false, aiController = false;
     public Camera cameraPosition;
-    public float ballShotDelay = 2.2f;
     public int playerHeldShot;
+    public List<GameObject> uiTrueFalseButton = new List<GameObject>();
+    [Header("Player And Ai setting")]
+    public float playerBallShotSpeed=400f;
+    public float aiBallShotSpeed=440f;
+    public float ballShotDelay = 2.2f;
 
     public static void OnStartGame()
     {
@@ -19,6 +23,14 @@ public class GameManager : Singleton<GameManager>
         TouchHandler.Instance.OnGameStarted();
         PlayerController.Instance.OnGameStarted();
         isRunning = true;
+    }
+
+    public void TrueFalseButton()
+
+    {
+        var aa = uiTrueFalseButton.First();
+        aa.transform.GetChild(0).gameObject.SetActive(true);
+        uiTrueFalseButton.Remove(aa);
     }
 
     public void ListControlRemove()

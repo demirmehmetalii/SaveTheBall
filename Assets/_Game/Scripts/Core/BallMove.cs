@@ -30,6 +30,7 @@ public class BallMove : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.playerHeldShot += 1;
+            GameManager.Instance.TrueFalseButton();
             this.gameObject.tag = "Untagged";
             BallShotPlayer();
         }
@@ -39,13 +40,13 @@ public class BallMove : MonoBehaviour
     {
         rigidBody.velocity = Vector3.zero;
         var positionRandom = new Vector3(Random.Range(-0.25f, 0.25f), 0, 0);
-        rigidBody.AddForce((transform.forward + transform.up + positionRandom) * speed);
+        rigidBody.AddForce((transform.forward + transform.up + positionRandom) * GameManager.Instance.aiBallShotSpeed);
         AİController.Instance.AiRotationFinish();
     }
 
     public void BallShotPlayer()
     {
         rigidBody.velocity = Vector3.zero;
-        rigidBody.AddForce((new Vector3(5, 5, 0)) * speed);
+        rigidBody.AddForce((new Vector3(4, 3, 0)) * GameManager.Instance.playerBallShotSpeed);
     }
 }
