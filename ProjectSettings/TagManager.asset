@@ -17,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - PlayerColl
+  - Player
+  - Wall
   - 
   - 
   - 
